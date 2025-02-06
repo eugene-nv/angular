@@ -1,7 +1,9 @@
 <div>
   <h1>{{title}}</h1>
 
-  <app-post-form></app-post-form>
+  <app-post-form
+    (onAdd)="updatePost($event)"
+  ></app-post-form>
 
   <hr />
 
@@ -11,9 +13,3 @@
   ></app-post>
   
 </div>
-
-<!-- <input type="text" [value]="foo" (input)="onInput($event)">
-<p>{{foo}}</p> -->
-
-<input type="text" [(ngModel)]="foo">
-<p>{{foo}}</p>

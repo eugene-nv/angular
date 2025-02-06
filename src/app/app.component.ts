@@ -25,9 +25,8 @@ export class AppComponent {
     {title: 'Почему он используется?', text: ' Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст..', id: 2}
   ]
 
-  foo = 'foo'
-
-  onInput(event: any) {
-    this.foo = event.target.value
+  updatePost(post: Post) {
+    this.posts.unshift(post)
+    console.log(post)
   }
 }
