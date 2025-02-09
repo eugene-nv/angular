@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { PostFormComponent } from './post-form/post-form.component';
 import { PostComponent } from './post/post.component';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 export interface Post {
@@ -13,7 +13,7 @@ export interface Post {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, PostFormComponent, PostComponent, NgFor, FormsModule],
+  imports: [RouterOutlet, PostFormComponent, PostComponent, NgFor, NgIf, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -28,5 +28,9 @@ export class AppComponent {
   updatePost(post: Post) {
     this.posts.unshift(post)
     console.log(post)
+  }
+
+  removePost(id: number) {
+    this.posts = this.posts.filter(p => p.id !== id)
   }
 }
